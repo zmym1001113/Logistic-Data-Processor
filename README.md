@@ -14,27 +14,6 @@ It’s designed to automate part of a real-world logistics workflow — showing 
 * Estimates **total product value** in USD
 * Prints summarized results for different quantities
 
-## 💻 Example Code
-
-```python
-result_30 = delivery_data(qty=30, usd_per_item=170)
-print(result_30)
-
-result_10 = delivery_data(qty=10, usd_per_item=170)
-print(result_10)
-
-result_50 = delivery_data(qty=50, usd_per_item=170)
-print(result_50)
-```
-
-## 📊 Sample Output
-
-```python
-{'qty': 30, 'box_type': 'B', 'total_weight': 11809, 'total_usd': 5100, 'cooling_cubes': 6, 'net_weight': 10609}
-```
-
-## 🧩 Tech Stack
-
 * **Language:** Python 3
 * **Libraries:** None (pure Python)
 
