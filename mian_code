@@ -1,0 +1,46 @@
+def delivery_data(qty, usd_per_item=170):
+
+    weights = {"babyderm": 11, "cooling_cube": 200, "A": 549, "B": 740, "D": 1172}
+    buffer_stuff_weight = {"A": 200, "B": 300, "D": 500}
+
+    # Cooling cubes
+    cooling_cubes = 6 if qty > 50 else 4
+    cooling_cubes += 2  # always add 2 more
+
+    # Box type
+    if qty <= 20:
+        box_type = "A"
+    elif qty <= 50:
+        box_type = "B"
+    else:
+        box_type = "D"
+
+    # Weight calculation
+    net_weight = qty * weights["babyderm"]
+    total_weight = net_weight + (cooling_cubes * weights["cooling_cube"]) + weights[box_type] + buffer_stuff_weight[box_type]
+    packing_weight = total_weight - (cooling_cubes * weights["cooling_cube"])
+    total_usd = qty * usd_per_item
+
+    return {
+        "qty": qty,
+        "box_type": box_type,
+        "total_weight": total_weight,
+        "total_usd": total_usd,
+        "cooling_cubes": cooling_cubes,
+        "net_weight": packing_weight
+    }
+
+#for result
+
+result_30 = delivery_data(qty=30, usd_per_item=170)
+
+print(result_30)
+
+
+result_10 = delivery_data(qty=10, usd_per_item=170)
+
+print(result_10)
+
+result_50 = delivery_data(qty=50, usd_per_item=170)
+
+print(result_50)
